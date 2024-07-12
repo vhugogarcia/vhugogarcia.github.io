@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--
+Author: Victor Hugo Garcia Hernandez
+GitHub: https://github.com/vhugogarcia
+-->
+<html data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MAUI Color Schemes</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/fontawesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <svg
+              fill="#512bd4"
+              width="160px"
+              height="160px"
+              viewBox="0 0 256 256"
+              id="Flat"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#512bd4"
+              stroke-width="6.4"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke="#CCCCCC"
+                stroke-width="0.512"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M69.12158,94.14551,28.49658,128l40.625,33.85449a7.99987,7.99987,0,1,1-10.24316,12.291l-48-40a7.99963,7.99963,0,0,1,0-12.291l48-40a7.99987,7.99987,0,1,1,10.24316,12.291Zm176,27.709-48-40a7.99987,7.99987,0,1,0-10.24316,12.291L227.50342,128l-40.625,33.85449a7.99987,7.99987,0,1,0,10.24316,12.291l48-40a7.99963,7.99963,0,0,0,0-12.291Zm-82.38769-89.373a8.00439,8.00439,0,0,0-10.25244,4.78418l-64,176a8.00034,8.00034,0,1,0,15.0371,5.46875l64-176A8.0008,8.0008,0,0,0,162.73389,32.48145Z"
+                ></path>
+              </g>
+            </svg>
+            <strong class="ml-3 is-size-4">MAUI Color Schemes</strong>
+          </a>
+        </div>
+        <div class="navbar-menu">
+          <div class="navbar-start">
+            <!-- navbar items -->
+          </div>
+
+          <div class="navbar-end">
+            <!-- navbar items -->
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <a
+                    class="button is-rounded"
+                    href="https://github.com/vhugogarcia"
+                    target="_blank"
+                  >
+                    <span class="icon">
+                      <i class="fa-brands fa-github"></i>
+                    </span>
+                    <span>GitHub</span>
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="content mt-4">
+        <p class="mb-0">
+          <strong>Convert personal color schemes to .NET MAUI</strong>
+        </p>
+        <p>
+          Please review the <strong>more information</strong> section below for further details on how to use
+          this converter.
+        </p>
+      </div>
+      <div class="columns is-mobile">
+        <div class="column is-two-fifths">
+          <div class="field">
+            <div class="control">
+              <textarea
+                id="codeInput"
+                class="textarea is-primary"
+                rows="20"
+                placeholder="Paste here the Material Design 3 JSON theme..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="column is-one-fifth">
+          <button class="button is-primary is-rounded" id="convertToXaml">
+            <span>Convert to XAML</span>
+            <span class="icon is-small">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span></button
+          ><br />
+          <label class="checkbox mt-2 is-size-7">
+            <input type="checkbox" id="includeAppThemeColor" />
+            Use
+            <a
+              href="https://learn.microsoft.com/en-us/dotnet/communitytoolkit/maui/essentials/apptheme-resources"
+              target="_blank"
+              >AppThemeColor</a
+            >
+            instead
+          </label>
+        </div>
+        <div class="column is-two-fifths">
+          <pre style="max-height: 500px">
+                <code class="language-xml" id="codeResult"></code>
+            </pre>
+        </div>
+      </div>
+      <div class="box">
+        <p><strong>More Information</strong></p>
+        <hr/>
+        <p><strong>What is this for?</strong></p>
+        <p>This tool helps to convert Material Design 3 color schemes to .NET MAUI XAML resources. You can build the color scheme from the following pages: <a href="https://material-foundation.github.io/material-theme-builder/" target="_blank">Material Foundation Theme Builder</a> or <a href="https://www.figma.com/community/plugin/1034969338659738588/material-theme-builder">Figma Material Theme Builder</a>, and export the theme as JSON format, then paste the JSON in the left-box above and click the convert to XAML button.</p>
+        <p class="mt-3"><strong>Does it have a cost?</strong></p>
+        <p>No, it is completely FREE.</p>
+        <p class="mt-3"><strong>Are you storing the data somewhere?</strong></p>
+        <p>No, we don't save any data you converted with this tool. You can even disconnect from the internet and convert it offline, once the page is loaded.</p>
+    </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
+    <script>
+      $(function () {
+        $("#convertToXaml").on("click", function () {
+          try {
+            var codeInput = $("#codeInput");
+            var includeAppThemeColor = $("#includeAppThemeColor")[0].checked;
+            if (codeInput.val() === "") {
+              alert("Please paste the Material Design 3 JSON theme");
+              return;
+            }
+            const json = JSON.parse(codeInput.val());
+            var xaml =
+              '<?xml version="1.0" encoding="UTF-8" ?>\n<?xaml-comp compile="true" ?>\n<ResourceDictionary \nxmlns="http://schemas.microsoft.com/dotnet/2021/maui" \nxmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" \nxmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">\n';
+
+            // Convert the color palettes
+            for (var palette in json.palettes) {
+              var newPalette = palette[0].toUpperCase() + palette.slice(1);
+              xaml += "    <!-- " + newPalette + " -->\n";
+              for (var color in json.palettes[palette]) {
+                xaml +=
+                  '    <Color x:Key="' +
+                  newPalette.replace(/-/g, "").replace("variant", "Variant") +
+                  color +
+                  '">' +
+                  json.palettes[palette][color] +
+                  "</Color>\n";
+              }
+            }
+
+            if (!includeAppThemeColor) {
+              // Convert the app theme colors
+              for (var scheme in json.schemes) {
+                var newScheme = scheme[0].toUpperCase() + scheme.slice(1);
+                newScheme = newScheme
+                  .replace("contrast", "Contrast")
+                  .replace("high", "High")
+                  .replace("medium", "Medium");
+                xaml += "    <!-- " + newScheme + " -->\n";
+                for (var type in json.schemes[scheme]) {
+                  var area = type[0].toUpperCase() + type.slice(1);
+                  xaml +=
+                    '   <Color x:Key="' +
+                    newScheme.replace(/-/g, "") +
+                    area +
+                    '">' +
+                    json.schemes[scheme][type] +
+                    "</Color>\n";
+                }
+              }
+            }
+
+            if (includeAppThemeColor) {
+              xaml +=
+                "    <!-- AppThemeColor from .NET MAUI Community Toolkit -->\n";
+              for (var scheme in json.schemes) {
+                console.log(scheme);
+                if (scheme.includes("light")) {
+                  var newScheme = scheme[0].toUpperCase() + scheme.slice(1);
+                  newScheme = newScheme
+                    .replace("contrast", "Contrast")
+                    .replace("high", "High")
+                    .replace("medium", "Medium");
+                  for (var type in json.schemes[scheme]) {
+                    var area = type[0].toUpperCase() + type.slice(1);
+                    var darkScheme =
+                      json.schemes[scheme.replace("light", "dark")];
+                    console.log(type);
+                    console.log(darkScheme);
+                    xaml +=
+                      '   <toolkit:AppThemeColor x:Key="' +
+                      newScheme
+                        .replace(/-/g, "")
+                        .replace("Light", "")
+                        .replace("Dark", "") +
+                      area +
+                      '" Light="' +
+                      json.schemes[scheme][type] +
+                      '" Dark="' +
+                      darkScheme[type] +
+                      '" />\n   ';
+                  }
+                }
+              }
+            }
+            xaml += "</ResourceDictionary>";
+
+            $("#codeResult").text(xaml);
+            hljs.highlightAll();
+          } catch (error) {
+            alert(error);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
