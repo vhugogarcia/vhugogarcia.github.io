@@ -1,0 +1,109 @@
+.CodeMirror {
+    height: 460px;
+}
+.code-section{
+    overflow: hidden;
+    height: 500px;
+    position: relative;
+    border: 1px solid #404654;
+}
+.header-section{
+    height: 40px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    background-color: #f3f4f6;
+    border-bottom: 1px solid #eee;
+    padding: 12px;
+    transition: all 0.5s;
+}
+
+.error{
+    border: 1px solid #ff6685;
+}
+.success{
+    border: 1px solid #48c78e;
+}
+
+.error .header-section{
+    background-color: #ffebef;
+    /* border-bottom: 1px solid #ff6685; */
+    color: #cc0029;
+}
+
+.success .header-section{
+    background-color: #effaf5;
+    /* border-bottom: 1px solid #48c78e; */
+    color: #006b5b;
+}
+
+.target-box .header-section{
+    justify-content: end;
+}
+
+.conver-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 16px;
+    padding: 10px 16px;
+}
+
+@media (max-width: 768px) { 
+    .conver-container{
+        flex-direction: column;
+        align-items: start;
+        gap: 6px;
+    }
+}
+.overlay{
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: #f7f7f7bb;
+    height: calc(100% - 40px);
+    top: 40px;
+    z-index: 12;
+}
+.cover-all{
+    height: 100%;
+    top: 0px;
+}
+
+.overlay .message-box{
+    display: none;
+    position: absolute;
+    margin: 70px 20px;
+    width: calc(100% - 40px);
+    z-index: 16;
+}
+
+.show{
+    display: block !important;
+}
+.hide{
+    display: none !important;
+}
+
+.tempInput{
+    position: absolute;
+    left: -1000;
+    width: 100px;
+}
+
+#coptButton{
+    float: right;
+}
+
+.navbar.box{
+    border-radius: 0px;
+}
+
+.arrow{
+    position: absolute;
+    top: calc(50% - 18px);
+    left: calc(50% - 10px);
+    font-size: 24px;
+    z-index: 20;
+}
