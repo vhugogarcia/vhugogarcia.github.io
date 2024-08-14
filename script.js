@@ -55,6 +55,17 @@ $(function () {
         
     });
 
+    $("#moreInfo").on("click", function () {
+
+      $('html').animate(
+        {
+          scrollTop: $('#howToUse').offset().top,
+        },
+        800 //speed
+      );
+      
+    });
+
     $("#convertToXaml").on("click", function () {
       try {
         var codeInput = sorce.getValue();
