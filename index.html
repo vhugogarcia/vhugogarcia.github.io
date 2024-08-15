@@ -31,6 +31,18 @@ GitHub: https://github.com/vhugogarcia
       content="maui, .net, color, schemes, converter, material design 3, xaml"
     />
     <title>MAUI Color Schemes</title>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.16.0/codemirror.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://codemirror.net/5/theme/duotone-light.css">
+      <!-- The link above loaded the core css -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.16.0/codemirror.js'></script>
+    <!-- The script above loaded the core editor -->
+      
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.16.0/mode/javascript/javascript.js'></script>
+    <!-- The script above loaded the highlighting for JavaScript -->
+    <link
+      rel="stylesheet"
+      href="./style.css"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"
@@ -45,8 +57,9 @@ GitHub: https://github.com/vhugogarcia
     />
   </head>
   <body>
-    <div class="container">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="bg"></div>
+    <nav class="navbar box" role="navigation" aria-label="main navigation">
+      <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
             <svg
@@ -87,7 +100,7 @@ GitHub: https://github.com/vhugogarcia
               <div class="field is-grouped">
                 <p class="control">
                   <a
-                    class="button is-rounded"
+                    class="button "
                     href="https://github.com/vhugogarcia"
                     target="_blank"
                   >
@@ -101,84 +114,151 @@ GitHub: https://github.com/vhugogarcia
             </div>
           </div>
         </div>
-      </nav>
-      <div class="content mt-4 p-4">
-        <p class="mb-0">
-          <strong>Convert personal color schemes to .NET MAUI</strong>
-        </p>
-        <p>
-          Please review the <strong>more information</strong> section below for
-          further details on how to use this converter.
-        </p>
       </div>
-      <div class="columns p-4">
-        <div class="column is-two-fifths">
-          <div class="field">
-            <div class="control">
-              <textarea
-                id="codeInput"
-                class="textarea is-primary"
-                rows="20"
-                placeholder="Paste here the Material Design 3 JSON theme..."
-              ></textarea>
+    </nav>
+    <div class="hero-section">
+      <div class="container">
+        <h1 class="title">Convert Personal Color Schemes to .NET MAUI</h1>
+        <p class="subtitle">Transform your Material Design 3 color schemes into .NET MAUI XAML resources with ease.</p>
+        <div class="features">
+          <div class="feature-item">
+            <span class="icon">🎨</span>
+            <span class="text">Easy conversion</span>
+          </div>
+          <div class="feature-item">
+            <span class="icon">⚡</span>
+            <span class="text">Fast and efficient</span>
+          </div>
+          <div class="feature-item">
+            <span class="icon">💻</span>
+            <span class="text">Works offline</span>
+          </div>
+        </div>
+        <a href="#" class="cta-button" id="moreInfo">Learn How to Use</a>
+      </div>
+    </div>
+    <div class="container">
+      <div style="position: relative;">
+        <div class="arrow">
+          <div class="is-block-tablet is-hidden-mobile"> <i class="fa-solid fa-arrow-right"></i> </div>
+          <div class="is-block-mobile is-hidden-tablet"> <i class="fa-solid fa-arrow-down-long"></i> </div>
+        </div>
+        <div class="columns">
+          
+          <div class="column is-half">
+            <div class="code-section box p-0 m-0">
+              <div class="header-section"> Paste the Material Design 3 JSON theme here: </div>
+              <div id="codeSorce"></div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="target-box code-section box p-0 m-0">
+              <div class="overlay cover-all show">
+                <div class="message-box">
+                  <article class="message is-danger">
+                    <div class="message-header">
+                      <p>Error!</p>
+                    </div>
+                    <div class="message-body">
+                      
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <div class="header-section"> 
+                <button class="button is-small " id="coptButton">
+                  <span class="icon icon1">
+                    <i class="fa-regular fa-copy"></i>
+                  </span>
+                  <span id="copyButtonLabel">Copy</span>
+                  <span class="icon icon2 hide">
+                    <i class="fa-solid fa-check"></i>
+                  </span>
+                </button>
+              </div>
+              <div id="codeTarget" ></div>
             </div>
           </div>
         </div>
-        <div class="column is-one-fifth">
-          <button class="button is-primary is-rounded" id="convertToXaml">
-            <span>Convert to XAML</span>
-            <span class="icon is-small">
-              <i class="fa-solid fa-arrow-right"></i>
-            </span></button
-          ><br />
-          <label class="checkbox mt-2 is-size-7">
-            <input type="checkbox" id="includeAppThemeColor" />
-            Use
-            <a
-              href="https://learn.microsoft.com/en-us/dotnet/communitytoolkit/maui/essentials/apptheme-resources"
-              target="_blank"
-              >AppThemeColor</a
+      </div>
+      <div class="columns">
+        <div class="column is-half">
+        </div>
+        <div class="column is-half">
+          <div class="conver-container">
+            <button class="cta-button " id="convertToXaml">
+              <span>Convert to XAML</span>
+              <span class="icon is-small">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span></button
             >
-            instead
-          </label>
-        </div>
-        <div class="column is-two-fifths">
-          <pre style="max-height: 500px">
-                <code class="language-xml" id="codeResult"></code>
-            </pre>
+            <label class="checkbox mt-2 is-size-7">
+              <input type="checkbox" id="includeAppThemeColor" />
+              Use
+              <a
+                href="https://learn.microsoft.com/en-us/dotnet/communitytoolkit/maui/essentials/apptheme-resources"
+                target="_blank"
+                >AppThemeColor</a
+              >
+              instead
+            </label>
+          </div>
         </div>
       </div>
-      <div class="box p-4 mb-6">
-        <p><strong>More Information</strong></p>
-        <hr />
 
-        <p>
-          I’ve been working hard on this free tool that I believe can make a difference and save developers a couple of hours. This tool helps to convert Material Design 3 color schemes to .NET
-          MAUI XAML resources. You can build the color scheme from the following
-          pages:
-          <a
-            href="https://material-foundation.github.io/material-theme-builder/"
-            target="_blank"
-            >Material Foundation Theme Builder</a
-          >
-          or
-          <a
-            href="https://www.figma.com/community/plugin/1034969338659738588/material-theme-builder"
-            >Figma Material Theme Builder</a
-          >, and export the theme as JSON format, then paste the JSON in the
-          left-box above and click the convert to XAML button.
-        </p>
-        <p class="mt-3"><strong>Does it have a cost?</strong></p>
-        <p>No, it is completely FREE.</p>
-        <p class="mt-3"><strong>Are you storing the data somewhere?</strong></p>
-        <p class="mb-3">
-          No, we don't save any data you converted with this tool. You can even
-          disconnect from the internet and convert it offline, once the page is
-          loaded.
-        </p>
+      
+      <div class="box p-4 mb-6 more-info-section">
+        <h2>More Information</h2>
+    
+        <p>I've been working hard on this free tool that I believe can make a difference and save developers a couple of hours. This tool helps to convert Material Design 3 color schemes to .NET MAUI XAML resources.</p>
       </div>
-      <p class="p-4 mb-6">&copy; Victor Hugo García Hernández - <a href="https://github.com/vhugogarcia" target="_blank">GitHub</a></p>
+      <div class="box p-4 mb-6 more-info-section" id="howToUse">
+        <h2>How to Use This Tool</h2>
+        <ol>
+            <li><strong>Create Your Color Scheme:</strong> Use either the <a href="https://material-foundation.github.io/material-theme-builder/" target="_blank">Material Foundation Theme Builder</a> or the <a href="https://www.figma.com/community/plugin/1034969338659738588/material-theme-builder" target="_blank">Figma Material Theme Builder</a> to create your custom color scheme.</li>
+            <li><strong>Export as JSON:</strong> Once you're happy with your color scheme, export it as a JSON file from the theme builder.</li>
+            <li><strong>Copy JSON:</strong> Open the exported JSON file and copy its entire contents.</li>
+            <li><strong>Paste into Tool:</strong> Paste the copied JSON into the left text box on this page.</li>
+            <li><strong>Convert:</strong> Click the "Convert to XAML" button.</li>
+            <li><strong>Get Results:</strong> The converted XAML will appear in the right text box.</li>
+            <li><strong>Copy XAML:</strong> Click the "Copy" button above the right text box to copy the XAML to your clipboard.</li>
+            <li><strong>Use in Your Project:</strong> Paste the copied XAML into your .NET MAUI project's resource dictionary.</li>
+        </ol>
+    
+        <p>You can now use these color resources throughout your .NET MAUI application!</p>
+    
+        <h3>Additional Options</h3>
+        <p>If you want to use AppThemeColor for light/dark theme support, check the "Use AppThemeColor" option before converting.</p>
+      </div>
+      <div class="box p-4 mb-6 more-info-section">
+        <!-- Existing FAQ section -->
+        <h2>Frequently Asked Questions</h2>
+    
+        <div class="question">Does it have a cost?</div>
+        <div class="answer">No, it is completely <strong>FREE</strong>.</div>
+    
+        <div class="question">Are you storing the data somewhere?</div>
+        <div class="answer">No, we don't save any data you converted with this tool. You can even disconnect from the internet and convert it offline, once the page is loaded.</div>
+      </div>
+
     </div>
+    
+    <footer class="mt-4 text-center">
+      <div class="container">
+        <p>© Victor Hugo García Hernández - <a href="https://github.com/vhugogarcia" target="_blank">GitHub</a></p>
+        <div class="contributors">
+          <p>Contributors:</p>
+          <div class="contributor-avatars">
+            <a href="https://github.com/vhugogarcia" target="_blank" class="contributor-avatar">
+              <img src="https://github.com/vhugogarcia.png" alt="vhugogarcia" title="vhugogarcia">
+            </a>
+            <a href="https://github.com/MhdFeras" target="_blank" class="contributor-avatar">
+              <img src="https://github.com/MhdFeras.png" alt="MhdFeras" title="MhdFeras">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -188,99 +268,6 @@ GitHub: https://github.com/vhugogarcia
     <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/js/all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
-    <script>
-      $(function () {
-        $("#convertToXaml").on("click", function () {
-          try {
-            var codeInput = $("#codeInput");
-            var includeAppThemeColor = $("#includeAppThemeColor")[0].checked;
-            if (codeInput.val() === "") {
-              alert("Please paste the Material Design 3 JSON theme");
-              return;
-            }
-            const json = JSON.parse(codeInput.val());
-            var xaml =
-              '<?xml version="1.0" encoding="UTF-8" ?>\n<?xaml-comp compile="true" ?>\n<ResourceDictionary \nxmlns="http://schemas.microsoft.com/dotnet/2021/maui" \nxmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" \nxmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">\n';
-
-            // Convert the color palettes
-            for (var palette in json.palettes) {
-              var newPalette = palette[0].toUpperCase() + palette.slice(1);
-              xaml += "    <!-- " + newPalette + " -->\n";
-              for (var color in json.palettes[palette]) {
-                xaml +=
-                  '    <Color x:Key="' +
-                  newPalette.replace(/-/g, "").replace("variant", "Variant") +
-                  color +
-                  '">' +
-                  json.palettes[palette][color] +
-                  "</Color>\n";
-              }
-            }
-
-            if (!includeAppThemeColor) {
-              // Convert the app theme colors
-              for (var scheme in json.schemes) {
-                var newScheme = scheme[0].toUpperCase() + scheme.slice(1);
-                newScheme = newScheme
-                  .replace("contrast", "Contrast")
-                  .replace("high", "High")
-                  .replace("medium", "Medium");
-                xaml += "    <!-- " + newScheme + " -->\n";
-                for (var type in json.schemes[scheme]) {
-                  var area = type[0].toUpperCase() + type.slice(1);
-                  xaml +=
-                    '   <Color x:Key="' +
-                    newScheme.replace(/-/g, "") +
-                    area +
-                    '">' +
-                    json.schemes[scheme][type] +
-                    "</Color>\n";
-                }
-              }
-            }
-
-            if (includeAppThemeColor) {
-              xaml +=
-                "    <!-- AppThemeColor from .NET MAUI Community Toolkit -->\n";
-              for (var scheme in json.schemes) {
-                console.log(scheme);
-                if (scheme.includes("light")) {
-                  var newScheme = scheme[0].toUpperCase() + scheme.slice(1);
-                  newScheme = newScheme
-                    .replace("contrast", "Contrast")
-                    .replace("high", "High")
-                    .replace("medium", "Medium");
-                  for (var type in json.schemes[scheme]) {
-                    var area = type[0].toUpperCase() + type.slice(1);
-                    var darkScheme =
-                      json.schemes[scheme.replace("light", "dark")];
-                    console.log(type);
-                    console.log(darkScheme);
-                    xaml +=
-                      '   <toolkit:AppThemeColor x:Key="' +
-                      newScheme
-                        .replace(/-/g, "")
-                        .replace("Light", "")
-                        .replace("Dark", "") +
-                      area +
-                      '" Light="' +
-                      json.schemes[scheme][type] +
-                      '" Dark="' +
-                      darkScheme[type] +
-                      '" />\n   ';
-                  }
-                }
-              }
-            }
-            xaml += "</ResourceDictionary>";
-
-            $("#codeResult").text(xaml);
-            hljs.highlightAll();
-          } catch (error) {
-            alert(error);
-          }
-        });
-      });
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>
